@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎭 Real-Time Emotion Detection</h1>
+            <p>AI-powered emotion recognition using your webcam</p>
+        </header>
+        
+        <main>
+            <div class="video-container">
+                <img id="video-stream" src="{{ url_for('video_feed') }}" alt="Video Stream">
+                <div class="controls">
+                    <button id="toggle-stream" class="btn btn-primary">Start Detection</button>
+                    <button id="capture-emotion" class="btn btn-secondary">Capture Emotion</button>
+                </div>
+            </div>
+            
+            <div class="results-panel">
+                <h2>Detection Results</h2>
+                <div id="emotion-results">
+                    <p class="no-results">No emotions detected yet. Make sure your face is visible!</p>
+                </div>
+                
+                <div class="emotion-stats">
+                    <h3>Emotion Statistics</h3>
+                    <div id="emotion-chart">
+                        <div class="emotion-bar" data-emotion="happy">
+                            <span class="emotion-label">😊 Happy</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 0%"></div>
+                                <span class="percentage">0%</span>
+                            </div>
+                        </div>
+                        <div class="emotion-bar" data-emotion="sad">
+                            <span class="emotion-label">😢 Sad</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 0%"></div>
+                                <span class="percentage">0%</span>
+                            </div>
+                        </div>
+                        <div class="emotion-bar" data-emotion="angry">
+                            <span class="emotion-label">😠 Angry</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 0%"></div>
+                                <span class="percentage">0%</span>
+                            </div>
+                        </div>
+                        <div class="emotion-bar" data-emotion="surprise">
+                            <span class="emotion-label">😲 Surprise</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 0%"></div>
+                                <span class="percentage">0%</span>
+                            </div>
+                        </div>
+                        <div class="emotion-bar" data-emotion="fear">
+                            <span class="emotion-label">😨 Fear</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 0%"></div>
+                                <span class="percentage">0%</span>
+                            </div>
+                        </div>
+                        <div class="emotion-bar" data-emotion="disgust">
+                            <span class="emotion-label">🤢 Disgust</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 0%"></div>
+                                <span class="percentage">0%</span>
+                            </div>
+                        </div>
+                        <div class="emotion-bar" data-emotion="neutral">
+                            <span class="emotion-label">😐 Neutral</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 0%"></div>
+                                <span class="percentage">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
